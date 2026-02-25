@@ -1,18 +1,30 @@
 let countdownTimer; 
+const DEFAULT_DURATION = 24 * 60 * 60; // 24 hours
+
+function updateDisplay(remainingTime) {
+    const hours = Math.floor(remainingTime / 3600);
+    const minutes = Math.floor((remainingTime % 3600) / 60);
+    const seconds = remainingTime % 60;
+
+    updateTimeSection('hours', hours);
+    updateTimeSection('minutes', minutes);
+    updateTimeSection('seconds', seconds);
+}
 
 function startCountdown(duration) {
     let remainingTime = duration;
 
-    updateTimeSection('seconds', remainingTime);
+    updateDisplay(remainingTime);
 
     countdownTimer = setInterval(() => {
         remainingTime--;
 
-        updateTimeSection('seconds', remainingTime);
-
-        if (remainingTime <= 0) {
+        if (remainingTime < 0) {
             clearInterval(countdownTimer); 
+            return;
         }
+
+        updateDisplay(remainingTime);
     }, 1000);
 }
 
@@ -79,7 +91,7 @@ function updateTimeSection(sectionID, timeValue) {
 
 function resetAndStartCountdown() {
     clearInterval(countdownTimer); 
-    startCountdown(10);
+    startCountdown(DEFAULT_DURATION);
 }
 
 
@@ -93,5 +105,5 @@ document.getElementById('restartButton').addEventListener('click', () => {
 
 
 window.onload = () => {
-    startCountdown(10); 
+    startCountdown(DEFAULT_DURATION);
 };

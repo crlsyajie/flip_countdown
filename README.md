@@ -5,7 +5,7 @@ This project is a simple, visually appealing countdown timer that mimics the sty
 ## Features
 
 - **Flip Animation:** Realistic flip effect for changing numbers.
-- **Countdown Functionality:** Counts down from a preset time (default: 10 seconds).
+- **Countdown Functionality:** Counts down from a preset time (default: 24 hours).
 - **Controls:**
   - **Start:** Begins the countdown (or resets and starts if already running).
   - **Restart:** Resets the timer and starts the countdown again.
@@ -32,7 +32,7 @@ To run this project locally, you don't need any build tools or servers.
 
 ## Usage
 
-When the page loads, the countdown will start automatically from 10 seconds. You can use the "Start" or "Restart" buttons to reset the timer back to 10 seconds at any time.
+When the page loads, the countdown will start automatically from 24 hours. You can use the "Start" or "Restart" buttons to reset the timer back to 24 hours at any time.
 
 ## License
 
