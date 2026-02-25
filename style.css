@@ -15,16 +15,60 @@ body {
     color: #e0e0e0;
 }
 
-.countdown {
+.countdown-container {
     display: flex;
-    flex-direction: row; /* Horizontal layout for H:M:S */
-    align-items: flex-end; /* Align bottom for labels */
-    justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
     width: 100%;
     max-width: 1200px;
-    padding: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-wrapper input {
+    background: #1e1e1e;
+    border: 2px solid #333;
+    color: #e0e0e0;
+    font-size: 24px;
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: #00d4ff;
+}
+
+.input-wrapper label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.countdown {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
 }
 
 .time-section {
@@ -35,7 +79,7 @@ body {
 }
 
 .sec {
-    font-size: 18px; /* Slightly smaller to fit */
+    font-size: 18px;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -54,14 +98,14 @@ body {
 
 .time-segment {
     display: block;
-    font-size: 100px; /* Reduced to fit all */
+    font-size: 100px;
     font-weight: 900;
-    width: 90px; /* Reduced width */
+    width: 90px;
 }
 
 .segment-display {
     position: relative;
-    height: 120px; /* Reduced height */
+    height: 120px;
 }
 
 .segment-display__top,
@@ -93,7 +137,7 @@ body {
 .segment-overlay {
     position: absolute;
     top: 0;
-    perspective: 400px; /* Adjusted perspective */
+    perspective: 400px;
     height: 100%;
     width: 100%;
 }
@@ -147,11 +191,10 @@ body {
     100% { transform: rotateX(0deg); }
 }
 
-/* Button Styling - Centered below */
 .button-container {
     display: flex;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     width: 100%;
     justify-content: center;
 }

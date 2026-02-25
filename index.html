@@ -8,88 +8,107 @@
 </head>
 <body>
 
-    <div class="countdown">
-        <div class="time-section" id="hours">
-            <div class="time-group">
-                <div class="time-segment">
-                    <div class="segment-display">
-                        <div class="segment-display__top"></div>
-                        <div class="segment-display__bottom"></div>
-                        <div class="segment-overlay">
-                            <div class="segment-overlay__top"></div>
-                            <div class="segment-overlay__bottom"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="time-segment">
-                    <div class="segment-display">
-                        <div class="segment-display__top"></div>
-                        <div class="segment-display__bottom"></div>
-                        <div class="segment-overlay">
-                            <div class="segment-overlay__top"></div>
-                            <div class="segment-overlay__bottom"></div>
-                        </div>
-                    </div>
-                </div>
+    <div class="countdown-container">
+        <!-- Input Section -->
+        <div class="input-group">
+            <div class="input-wrapper">
+                <input type="number" id="inputHours" min="0" max="99" placeholder="00">
+                <label for="inputHours">Hours</label>
             </div>
-            <p class="sec">Hours</p>
+            <div class="input-wrapper">
+                <input type="number" id="inputMinutes" min="0" max="59" placeholder="00">
+                <label for="inputMinutes">Minutes</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="number" id="inputSeconds" min="0" max="59" placeholder="00">
+                <label for="inputSeconds">Seconds</label>
+            </div>
         </div>
 
-        <div class="time-section" id="minutes">
-            <div class="time-group">
-                <div class="time-segment">
-                    <div class="segment-display">
-                        <div class="segment-display__top"></div>
-                        <div class="segment-display__bottom"></div>
-                        <div class="segment-overlay">
-                            <div class="segment-overlay__top"></div>
-                            <div class="segment-overlay__bottom"></div>
+        <div class="countdown">
+            <div class="time-section" id="hours">
+                <div class="time-group">
+                    <div class="time-segment">
+                        <div class="segment-display">
+                            <div class="segment-display__top">0</div>
+                            <div class="segment-display__bottom">0</div>
+                            <div class="segment-overlay">
+                                <div class="segment-overlay__top">0</div>
+                                <div class="segment-overlay__bottom">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-segment">
+                        <div class="segment-display">
+                            <div class="segment-display__top">0</div>
+                            <div class="segment-display__bottom">0</div>
+                            <div class="segment-overlay">
+                                <div class="segment-overlay__top">0</div>
+                                <div class="segment-overlay__bottom">0</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="time-segment">
-                    <div class="segment-display">
-                        <div class="segment-display__top"></div>
-                        <div class="segment-display__bottom"></div>
-                        <div class="segment-overlay">
-                            <div class="segment-overlay__top"></div>
-                            <div class="segment-overlay__bottom"></div>
-                        </div>
-                    </div>
-                </div>
+                <p class="sec">Hours</p>
             </div>
-            <p class="sec">Minutes</p>
-        </div>
 
-        <div class="time-section" id="seconds">
-            <div class="time-group">
-                <div class="time-segment">
-                    <div class="segment-display">
-                        <div class="segment-display__top"></div>
-                        <div class="segment-display__bottom"></div>
-                        <div class="segment-overlay">
-                            <div class="segment-overlay__top"></div>
-                            <div class="segment-overlay__bottom"></div>
+            <div class="time-section" id="minutes">
+                <div class="time-group">
+                    <div class="time-segment">
+                        <div class="segment-display">
+                            <div class="segment-display__top">0</div>
+                            <div class="segment-display__bottom">0</div>
+                            <div class="segment-overlay">
+                                <div class="segment-overlay__top">0</div>
+                                <div class="segment-overlay__bottom">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-segment">
+                        <div class="segment-display">
+                            <div class="segment-display__top">0</div>
+                            <div class="segment-display__bottom">0</div>
+                            <div class="segment-overlay">
+                                <div class="segment-overlay__top">0</div>
+                                <div class="segment-overlay__bottom">0</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="time-segment">
-                    <div class="segment-display">
-                        <div class="segment-display__top"></div>
-                        <div class="segment-display__bottom"></div>
-                        <div class="segment-overlay">
-                            <div class="segment-overlay__top"></div>
-                            <div class="segment-overlay__bottom"></div>
-                        </div>
-                    </div>
-                </div>
+                <p class="sec">Minutes</p>
             </div>
-            <p class="sec">Seconds</p>
+
+            <div class="time-section" id="seconds">
+                <div class="time-group">
+                    <div class="time-segment">
+                        <div class="segment-display">
+                            <div class="segment-display__top">0</div>
+                            <div class="segment-display__bottom">0</div>
+                            <div class="segment-overlay">
+                                <div class="segment-overlay__top">0</div>
+                                <div class="segment-overlay__bottom">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-segment">
+                        <div class="segment-display">
+                            <div class="segment-display__top">0</div>
+                            <div class="segment-display__bottom">0</div>
+                            <div class="segment-overlay">
+                                <div class="segment-overlay__top">0</div>
+                                <div class="segment-overlay__bottom">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="sec">Seconds</p>
+            </div>
+
         </div>
         
         <div class="button-container">
             <button id="startButton">Start</button>
-            <button id="restartButton">Restart</button>
+            <button id="resetButton">Reset</button>
         </div>
     </div>
 
