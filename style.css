@@ -27,7 +27,7 @@ body {
 }
 
 .time-section {
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .time-group {
@@ -37,9 +37,9 @@ body {
 
 .time-segment {
     display: block;
-    font-size: 100px;
+    font-size: 200px;
     font-weight: 900;
-    width: 100px;
+    width: 200px;
 }
 
 .segment-display {
@@ -71,9 +71,9 @@ body {
 .segment-overlay {
     position: absolute;
     top: 0;
-    perspective: 400px;
+    perspective: 800px;
     height: 100%;
-    width: 100px;
+    width: 200px;
 }
 
 .segment-overlay__top,
