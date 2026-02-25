@@ -1,7 +1,14 @@
 let countdownTimer; 
-const DEFAULT_DURATION = 24 * 60 * 60; // 24 hours
+let isRunning = false;
+
+function getInputValue(id) {
+    const val = parseInt(document.getElementById(id).value);
+    return isNaN(val) ? 0 : val;
+}
 
 function updateDisplay(remainingTime) {
+    if (remainingTime < 0) remainingTime = 0;
+
     const hours = Math.floor(remainingTime / 3600);
     const minutes = Math.floor((remainingTime % 3600) / 60);
     const seconds = remainingTime % 60;
@@ -11,21 +18,40 @@ function updateDisplay(remainingTime) {
     updateTimeSection('seconds', seconds);
 }
 
-function startCountdown(duration) {
-    let remainingTime = duration;
+function startCountdown() {
+    if (isRunning) return;
 
-    updateDisplay(remainingTime);
+    const hours = getInputValue('inputHours');
+    const minutes = getInputValue('inputMinutes');
+    const seconds = getInputValue('inputSeconds');
+
+    let totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+    if (totalSeconds <= 0) return;
+
+    isRunning = true;
+    updateDisplay(totalSeconds);
 
     countdownTimer = setInterval(() => {
-        remainingTime--;
+        totalSeconds--;
 
-        if (remainingTime < 0) {
+        if (totalSeconds < 0) {
             clearInterval(countdownTimer); 
+            isRunning = false;
             return;
         }
 
-        updateDisplay(remainingTime);
+        updateDisplay(totalSeconds);
     }, 1000);
+}
+
+function resetCountdown() {
+    clearInterval(countdownTimer);
+    isRunning = false;
+    updateDisplay(0);
+    document.getElementById('inputHours').value = '';
+    document.getElementById('inputMinutes').value = '';
+    document.getElementById('inputSeconds').value = '';
 }
 
 function getTimeSegmentElements(segmentElement) {
@@ -52,8 +78,9 @@ function updateSegmentValues(displayElement, overlayElement, value) {
 
 function updateTimeSegment(segmentElement, timeValue) {
     const segmentElements = getTimeSegmentElements(segmentElement);
+    const currentValue = parseInt(segmentElements.segmentDisplayTop.textContent, 10);
 
-    if (parseInt(segmentElements.segmentDisplayTop.textContent, 10) === timeValue) {
+    if (currentValue === timeValue) {
         return;
     }
 
@@ -72,7 +99,6 @@ function updateTimeSegment(segmentElement, timeValue) {
             segmentElements.segmentOverlayTop,
             timeValue
         );
-
         this.removeEventListener('animationend', finishAnimation);
     }
 
@@ -89,21 +115,9 @@ function updateTimeSection(sectionID, timeValue) {
     updateTimeSegment(timeSegments[1], secondNumber);
 }
 
-function resetAndStartCountdown() {
-    clearInterval(countdownTimer); 
-    startCountdown(DEFAULT_DURATION);
-}
 
+document.getElementById('startButton').addEventListener('click', startCountdown);
+document.getElementById('resetButton').addEventListener('click', resetCountdown);
 
-document.getElementById('startButton').addEventListener('click', () => {
-    resetAndStartCountdown();
-});
-
-document.getElementById('restartButton').addEventListener('click', () => {
-    resetAndStartCountdown();
-});
-
-
-window.onload = () => {
-    startCountdown(DEFAULT_DURATION);
-};
+// Initial display reset
+updateDisplay(0);
